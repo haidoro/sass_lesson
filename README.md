@@ -130,6 +130,9 @@ gulp.task('default',['serve','watch']);
 ```
 
 これで`gulp`とコマンド入力するとブラウザが立ち上がってシンクします。
+## コメント
+//を使うと1行コメントになります。こちらはコンパイルするとCSSには書き出されません。   
+/**/を使うと複数行コメントになります。こちらはコンパイル後もCSSに書き出されます。
 
 ## ネスト
 `header`要素の背景色を決めて、その子要素である`h1`をセンタリングします。このようなネストをする場合は次のように記述します。
@@ -232,4 +235,45 @@ header{
 プロパティのネストは可読性が悪かったりしますし、ショートハンドの方が効率的と言う場合もありますので無理に使う必要はありません。
 
 ## メディアクエリで活用
+メディアクエリの記述は楽になります。
+```
+.sweets{
+  max-width: 880px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-around;
+  @media screen and (max-width: 768px){
+    flex-direction : column;
+  }
+}
+```
+
+## @at_rootの使い方
+`@at_root`を使うとネストして記述しても余計な親セレクタを除外してCSSを書き出すことができます。
+例えば次のようにネストしてh1を記述しておいても、`@at_root`を使うとCSSには`header h1`とはならずに`h1`セレクタのみ記述されます。
+
+```
+header{
+  max-width:980px;
+  margin: 0 auto;
+  background-color: #bdbafa;
+  border: {
+    top:1px solid #bdbafa;
+  }
+  @at-root h1{
+    text-align: center;
+    margin:20px 0 0;
+  }
+}
+```
+
+
+
+
+
+
+
+
+
+
 

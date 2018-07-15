@@ -5,7 +5,7 @@ header {
   border-top: 1px solid #bdbafa;
 }
 
-header h1 {
+h1 {
   text-align: center;
   margin: 20px 0 0;
 }
@@ -54,4 +54,30 @@ header > p {
 
 .menu__item_state_current a {
   background-color: #fff;
+}
+
+h2 {
+  text-align: center;
+}
+
+.sweets {
+  max-width: 880px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 768px) {
+  .sweets {
+    flex-direction: column;
+  }
+}
+
+.col {
+  padding: 10px;
+}
+
+.col img {
+  display: block;
+  margin: 0 auto 20px;
 }
