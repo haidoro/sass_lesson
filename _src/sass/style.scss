@@ -1,6 +1,51 @@
-ul{
-  margin:0 0 20px;
-  li{
-    padding:10px;
+header{
+  max-width:980px;
+  margin: 0 auto;
+  background-color: #bdbafa;
+  border: {
+    top:1px solid #bdbafa;
+  }
+  h1{
+    text-align: center;
+    margin:20px 0 0;
+  }
+  > p {
+    text-align: center;
+    margin:0;
+    font-size: 12px;
+  }
+  .home & > p{
+    color:#6a0259;
+    &:hover{
+      color:#028787;
+    }
+  }
+}
+.search{
+  display:flex;
+  justify-content:flex-end;
+  align-items: center;
+  &__button{
+    width:50px;
+  }
+  > p{
+    font-size: 12px;
+  }
+}
+.menu{
+  display:inline-flex;
+  list-style:none;
+  &__item{
+    & a{
+     display:block;
+     width:100px;
+     margin-left:-1px;
+     text-align: center;
+     text-decoration: none;
+     border:1px solid #6a0259;
+   }
+   &_state_current a{
+     background-color: #fff;
+   }
   }
 }

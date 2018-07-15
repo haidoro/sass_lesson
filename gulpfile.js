@@ -20,6 +20,7 @@ gulp.task('sass', function(){
 
 gulp.task('watch', function(){
   gulp.watch('./_src/sass/**/*.scss', ['sass']);
+  gulp.watch(['./*.html', './css/*.css']).on('change', browserSync.reload);
 })
 
 gulp.task('default',['serve','watch']);

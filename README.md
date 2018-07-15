@@ -123,6 +123,7 @@ gulp.task('sass', function(){
 
 gulp.task('watch', function(){
   gulp.watch('./_src/sass/**/*.scss', ['sass']);
+  gulp.watch(['./*.html', './css/*.css']).on('change', browserSync.reload);
 })
 
 gulp.task('default',['serve','watch']);
@@ -131,10 +132,104 @@ gulp.task('default',['serve','watch']);
 これで`gulp`とコマンド入力するとブラウザが立ち上がってシンクします。
 
 ## ネスト
+`header`要素の背景色を決めて、その子要素である`h1`をセンタリングします。このようなネストをする場合は次のように記述します。
 
+```
+header{
+  background-color: rgb(164, 167, 29);
+  h1{
+    text-align: center;
+  }
+}
+```
 
+** 最近ではCSSの記述でネストが深くなるのを嫌います。これは後々CSSのカスケーディングする場合混乱が起こるためです。SASSを覚えたらネスト記法をしたくなりますが、不用意にネストした記述にならないように注意しましょう。**
 
+## 隣接セレクタ、間接セレクタ、直下セレクタの記述
+例えば直下セレクタの場合は、以下のコードの`> p`セレクタのように記述します。隣接セレクタ`+ p`、間接セレクタ`~ p`も同様にすれば良いです。
 
+```
+header{
+  background-color: #bdbafa;
+  h1{
+    text-align: center;
+    margin:0;
+  }
+  > p {
+    text-align: center;
+    margin:0;
+  }
+}
+```
 
+## 親セレクタの参照
+例えば、header要素にネストしたp要素を指定するときに、header要素のさらに親要素を記述する必要がある場合には、header要素を「&」で表すことができます。下記の例では`.home & > p`のところです。
+```
+header{
+  background-color: #bdbafa;
+  h1{
+    text-align: center;
+    margin:0;
+  }
+  > p {
+    text-align: center;
+    margin:0;
+    font-size: 12px;
+  }
+  .home & > p{
+    color:#6a0259;
+  }
+}
+```
+さらに例えば`.btn.big`などのセレクタを記述する場合にも、`.btn`からネストした状態で`&.big`と記述することができます。
 
+また、この記述は擬似要素や擬似クラスを使う場合も必要になってきます。
+次の例では`&:hover`部分の記述です。
+```
+header{
+  background-color: #bdbafa;
+  h1{
+    text-align: center;
+    margin:0;
+  }
+  > p {
+    text-align: center;
+    margin:0;
+    font-size: 12px;
+  }
+  .home & > p{
+    color:#6a0259;
+    &:hover{
+      color:#028787;
+    }
+  }
+}
+```
+### BEM記法での活用
+BEM記法などを使う場合も&は有効に活用できます。
+`.search__button`などのBEM記法を使う時に活用できます。
+
+```
+.search{
+  display:flex;
+  justify-content:flex-end;
+  align-items: center;
+  &__button{
+    width:50px;
+  }
+```
+## プロパティのネスト
+ハイフン区切りのあるプロパティはネストすることができます。
+
+```
+header{
+  background-color: #bdbafa;
+  border: {
+    top:1px solid #bdbafa;
+  }
+}
+```
+プロパティのネストは可読性が悪かったりしますし、ショートハンドの方が効率的と言う場合もありますので無理に使う必要はありません。
+
+## メディアクエリで活用
 
