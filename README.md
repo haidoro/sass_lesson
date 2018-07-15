@@ -92,8 +92,45 @@ CSSの出力形式は`gulpfile.js`の`outputStyle: 'expanded'`で調整します
 3. 「compact」はセレクタごとに1行にまとめられて記述されます。
 4. 「compress」はインデントや改行がなく圧縮された状態になります。リリース時はこの記述を使います。
 
+## ブラウザのシンク
+browser-syncを導入するとシンクさせることができます。
+
+```
+npm install browser-sync
+```
+
+gulpfile.jsの記述
+```
+'use strict'
+
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const browserSync = require('browser-sync').create();
+
+gulp.task('serve', () => {
+
+  browserSync.init({
+      server: "./"
+  });
+});
 
 
+gulp.task('sass', function(){
+  gulp.src('./_src/sass/**/*.scss')
+    .pipe(sass({outputStyle: 'expanded'}))
+    .pipe(gulp.dest('./css'));
+});
+
+gulp.task('watch', function(){
+  gulp.watch('./_src/sass/**/*.scss', ['sass']);
+})
+
+gulp.task('default',['serve','watch']);
+```
+
+これで`gulp`とコマンド入力するとブラウザが立ち上がってシンクします。
+
+## ネスト
 
 
 
