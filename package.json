@@ -1,0 +1,23 @@
+{
+  "name": "sass_lesson1",
+  "version": "1.0.0",
+  "description": "SASSにはSASS記法とSCSS記法があるが、一般的にSCSS記法が支持されているので今回はSCSS記法のみ学習します。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haidoro/sass_lesson.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haidoro/sass_lesson/issues"
+  },
+  "homepage": "https://github.com/haidoro/sass_lesson#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1"
+  }
+}
