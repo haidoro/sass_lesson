@@ -1,11 +1,18 @@
+@import "sanitize";
+@import "variable";
+
+body{
+  background-color: $color-base;
+}
 header{
   max-width:980px;
   margin: 0 auto;
-  background-color: #bdbafa;
+  background-color: $color-main;
   border: {
-    top:1px solid #bdbafa;
+    top:1px solid $color-main;
   }
 @at-root  h1{
+  color:$color-darkest;
     text-align: center;
     margin:20px 0 0;
   }
@@ -15,9 +22,9 @@ header{
     font-size: 12px;
   }
   .home & > p{
-    color:#6a0259;
+    color:$color-accent;
     &:hover{
-      color:#028787;
+      color:lighten($color-accent, 15%);
     }
   }
 }
@@ -26,15 +33,31 @@ header{
   justify-content:flex-end;
   align-items: center;
   &__button{
-    width:50px;
+    width:80px;
+    height: 24px;
+    font-size: 14px;
+    margin-right: 10px;
+    background-color: $color-light;
+    border:1px solid $color-accent;
+    border-radius: 5px;
+    &:hover{
+      background-color: $color-lighter;
+    }
+  }
+  &__input{
+    width:200px;
+    height:24px;
+    margin-right: 10px;
+    background-color: $color-base;
+    border:1px solid $color-accent;
   }
   > p{
-    font-size: 12px;
+    font-size: 14px;
+    margin-right: 10px;
   }
 }
 .menu{
   display:inline-flex;
-  list-style:none;
   &__item{
     & a{
      display:block;
@@ -45,19 +68,20 @@ header{
      border:1px solid #6a0259;
    }
    &_state_current a{
-     background-color: #fff;
+     background-color: $color-base;
    }
   }
 }
 h2{
+  color:$color-darkest;
   text-align: center;
 }
 .sweets{
-  max-width: 880px;
+  max-width: 140px * 5 + (20px*5);
   margin:0 auto;
   display:flex;
   justify-content:space-around;
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 140px * 5 + (20px*5) -1px){
     flex-direction : column;
   }
 }

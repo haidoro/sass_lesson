@@ -1,0 +1,10 @@
+$color-base: #eee;
+$color-main:  #bdbafa;
+$color-accent: #6a0259;
+
+$color-darkest:    darken($color-main, 45%);
+$color-darker:     darken($color-main, 30%);
+$color-dark:       darken($color-main, 15%);
+$color-light:      lighten($color-main, 5%);
+$color-lighter:    lighten($color-main, 10%);
+$color-lightest:   lighten($color-main, 15%);
