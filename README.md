@@ -401,4 +401,24 @@ Sassでは、基本的な四則演算をサポートしています。
 }
 ```
 
+## Mixin
+mixinの定義の方法
+***ポイントは、定義は`@mixin`と記述して、呼び出しは`@include`を使います。***
+* 何度呼び出しを行っても良いです。
+* 命名ルールは、「_」,「-」,英数字,日本語も使用可。先頭に数字を使用できません。
+* スコープがあり、ルールセット内で宣言してその中だけで使用することができます。  
+一般的にはグローバルに宣言して使う場合が多い。
+* ＠mixinは引数を取ることができます。
 
+
+```
+@mixin roundBox($value:10px) {
+    background: #ededed;
+    border: 1px solid #ccc;
+    border-radius:$value;
+}
+/*呼び出し*/
+.sideArea{
+    @include roundBox(5px);
+}
+```

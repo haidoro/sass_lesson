@@ -1,6 +1,10 @@
 @import "sanitize";
 @import "variable";
-
+@mixin roundBox($value:10px) {
+    background: #ededed;
+    border: 1px solid #ccc;
+    border-radius:$value;
+}
 body{
   background-color: $color-base;
 }
@@ -87,6 +91,8 @@ h2{
 }
 .col{
   padding:10px;
+  margin:10px;
+  @include roundBox(5px);
   img{
     display:block;
     margin:0 auto 20px;
